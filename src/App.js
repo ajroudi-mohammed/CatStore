@@ -3,6 +3,7 @@ import Home from './pages/home'
 import Products from './pages/products'
 import Cart from './pages/cart'
 import {BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import Product from './pages/product'
 class App extends Component{
   render() {
     return (
@@ -30,7 +31,8 @@ class App extends Component{
           </nav>
 
           <Route path="/" component={Home} exact />
-          <Route path="/products" component={Products} />
+          <Route path="/products" component={Products} exact />
+          <Route path="/products/:id" component={Product} />
           <Route path="/cart" component={Cart} />
 
         </div>
