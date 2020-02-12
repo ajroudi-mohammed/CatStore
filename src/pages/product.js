@@ -5,6 +5,7 @@ class Product extends Component{
 
     state = {
         loading : true,
+        quantity: 1,
         product : []
     }
 
@@ -19,9 +20,19 @@ class Product extends Component{
             })
     }
 
+    handlequantity = (event) => {
+        var quantity = event.target.value
+        if(quantity <=0)
+            return
+
+        this.setState({
+            quantity: quantity
+        })
+    }
+ 
     render(){
 
-        const {product} = this.state
+        const {product,quantity} = this.state
 
         return (
             <div>
@@ -34,9 +45,11 @@ class Product extends Component{
 
                     <p>{product.description}</p>
 
-                    <input type="number" />
+                    <input type="number" value={quantity} onChange={this.handlequantity} />
 
                     <br/><br/>
+
+                    <p>Total price : {product.price*quantity}</p>
                     
 
                     <button className={"btn btn-primary"}>Add to cart</button>
