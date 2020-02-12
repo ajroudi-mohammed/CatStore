@@ -4,6 +4,7 @@ import Products from './pages/products'
 import Cart from './pages/cart'
 import {BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Product from './pages/product'
+import CartIcon from './components/CartIcon';
 class App extends Component{
   render() {
     return (
@@ -28,6 +29,8 @@ class App extends Component{
                 </li>
               </ul>
             </div>
+
+            <CartIcon />
           </nav>
 
           <Route path="/" component={Home} exact />
