@@ -5,6 +5,9 @@ import Cart from './pages/cart'
 import {BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Product from './pages/product'
 import CartIcon from './components/CartIcon';
+import store from './store/store.js'
+import {Provider} from 'react-redux';
+
 class App extends Component{
   render() {
     return (
@@ -27,7 +30,7 @@ class App extends Component{
                 <li className="nav-item">
                   <Link className="nav-link" to="/cart">Cart</Link>
                 </li>
-              </ul>
+               </ul>
             </div>
 
             <CartIcon />
@@ -44,4 +47,10 @@ class App extends Component{
   }
 }
 
-export default App;
+const AppWithProvider = () =>{
+    return <Provider store={store}>
+            <App />
+        </Provider>
+}
+
+export default AppWithProvider;
